@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="LowmiaApp/LowmiaApp.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+</Solution>

@@ -1,0 +1,22 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="512" height="512">
+	<!-- Dış Altın/Krem Rengi İnce Halka -->
+	<circle cx="128" cy="105" r="68" fill="none" stroke="#FCE8C7" stroke-width="4" />
+
+	<!-- İç Pembe/Mor Daire -->
+	<circle cx="128" cy="105" r="54" fill="#F9EFF4" />
+
+	<!-- L Harfi (Altın Rengi) -->
+	<path d="M 104 82 L 104 128 L 122 128" fill="none" stroke="#C4962B" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" />
+
+	<!-- M Harfi (Altın Rengi) -->
+	<path d="M 128 128 L 128 82 L 141 105 L 154 82 L 154 128" fill="none" stroke="#C4962B" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" />
+
+	<!-- Sparkle (büyük yıldız) -->
+	<path transform="translate(46,200)" d="M 0 -16 C 1.6 -6.4 6.4 -1.6 16 0 C 6.4 1.6 1.6 6.4 0 16 C -1.6 6.4 -6.4 1.6 -16 0 C -6.4 -1.6 -1.6 -6.4 0 -16 Z" fill="#C4962B" />
+
+	<!-- Sparkle (küçük yıldız) -->
+	<path transform="translate(30,182)" d="M 0 -7 C 0.7 -2.8 2.8 -0.7 7 0 C 2.8 0.7 0.7 2.8 0 7 C -0.7 2.8 -2.8 0.7 -7 0 C -2.8 -0.7 -0.7 -2.8 0 -7 Z" fill="#C4962B" />
+
+	<!-- LOWMİA Yazısı -->
+	<text x="68" y="215" font-family="sans-serif" font-size="34" font-weight="bold" letter-spacing="6" fill="#C4962B" text-anchor="start">LOWMİA</text>
+</svg>

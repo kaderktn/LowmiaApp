@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LowmiaApp.MainPage"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#FDF0F3" Offset="0.0" />
+            <GradientStop Color="#FCF5E3" Offset="0.3" />
+            <GradientStop Color="#FDF3E8" Offset="0.7" />
+            <GradientStop Color="#F9F5FD" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <!-- Ana Yapıyı Grid İçine Alıyoruz -->
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout VerticalOptions="Center" Padding="20">
+
+                <Border BackgroundColor="#F5FFFFFF" 
+                        Stroke="#FFFFFF" 
+                        StrokeThickness="1" 
+                        HorizontalOptions="Center" 
+                        WidthRequest="380"
+                        Margin="0,15">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="24" />
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="#D4AF37" Opacity="0.08" Radius="35" Offset="0,15" />
+                    </Border.Shadow>
+
+                    <VerticalStackLayout Padding="35,45" Spacing="15">
+
+                        <Border WidthRequest="85" 
+                                HeightRequest="85" 
+                                Stroke="#FCE8C7"
+                                StrokeThickness="2"
+                                BackgroundColor="White"
+                                HorizontalOptions="Center"
+                                Padding="0"
+                                Margin="0,0,0,10">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="42.5" />
+                            </Border.StrokeShape>
+                            <Border.Shadow>
+                                <Shadow Brush="#D4AF37" Opacity="0.15" Radius="20" Offset="0,8" />
+                            </Border.Shadow>
+
+                            <Grid WidthRequest="55" HeightRequest="55" HorizontalOptions="Center" VerticalOptions="Center">
+                                <Ellipse>
+                                    <Ellipse.Fill>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="#1AD81B60" Offset="0" />
+                                            <GradientStop Color="#0D9333EA" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <Path Data="M 32,28 L 32,66 Q 32,70 36,70 L 52,70 M 46,70 L 46,30 L 61,53 L 76,30 L 76,70"
+                                      StrokeThickness="3.5" StrokeLineCap="Round" StrokeLineJoin="Round"
+                                      Aspect="Uniform" Margin="12,12,12,15">
+                                    <Path.Stroke>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="#D4AF37" Offset="0.0" />
+                                            <GradientStop Color="#C4962B" Offset="1.0" />
+                                        </LinearGradientBrush>
+                                    </Path.Stroke>
+                                </Path>
+                            </Grid>
+                        </Border>
+
+                        <Label Text="LOWMİA" FontSize="28" FontAttributes="Bold" CharacterSpacing="2" HorizontalOptions="Center" TextColor="#C4962B" />
+                        <Label Text="Cilt bakım yolculuğuna başla" FontSize="15" HorizontalOptions="Center" TextColor="#6C757D" Margin="0,-5,0,20" />
+
+                        <Border Stroke="#F3E8FF" StrokeThickness="1" BackgroundColor="White" HeightRequest="55" Padding="18,0">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="16"/>
+                            </Border.StrokeShape>
+                            <Entry x:Name="EmailEntry" Placeholder="E-posta Adresiniz" BackgroundColor="Transparent" TextColor="#2C3E50" PlaceholderColor="#9CA3AF" VerticalOptions="Center" Keyboard="Email" />
+                        </Border>
+
+                        <Border Stroke="#F3E8FF" StrokeThickness="1" BackgroundColor="White" HeightRequest="55" Padding="18,0">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="16"/>
+                            </Border.StrokeShape>
+                            <Grid ColumnDefinitions="*, Auto">
+                                <Entry x:Name="PasswordEntry" Grid.Column="0" Placeholder="Şifreniz" IsPassword="True" BackgroundColor="Transparent" TextColor="#2C3E50" PlaceholderColor="#9CA3AF" VerticalOptions="Center" />
+                                <Label x:Name="PasswordEyeIcon" Grid.Column="1" Text="👁" TextColor="#9CA3AF" VerticalOptions="Center" FontSize="18">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnTogglePasswordVisibility" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                        </Border>
+
+                        <Grid ColumnDefinitions="*, Auto" Margin="0,10,0,15">
+                            <HorizontalStackLayout Grid.Column="0" Spacing="8" VerticalOptions="Center">
+                                <CheckBox x:Name="RememberMeCheckbox" Color="#D4AF37" WidthRequest="22" HeightRequest="22" />
+                                <Label Text="Beni hatırla" TextColor="#6C757D" FontSize="13" FontAttributes="Bold" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                            <Label Grid.Column="1" Text="Şifremi unuttum?" TextColor="#C4962B" FontAttributes="Bold" FontSize="13" VerticalOptions="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnForgotPasswordTapped" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Grid>
+
+                        <Border StrokeThickness="0" HeightRequest="55" Margin="0,0,0,10">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="16"/>
+                            </Border.StrokeShape>
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#D4AF37" Offset="0.0" />
+                                    <GradientStop Color="#C4962B" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Button x:Name="LoginButton" Text="GİRİŞ YAP" BackgroundColor="Transparent" TextColor="White" FontAttributes="Bold" FontSize="16" CharacterSpacing="0.5" Clicked="OnLoginClicked" />
+                        </Border>
+
+                        <Label Text="Hesabınız yok mu? Hemen kayıt olun." TextColor="#9CA3AF" FontSize="13" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,5,0,0">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnRegisterTapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- OTOMATİK KAPANAN YÜKLENME EKRANI (OVERLAY) -->
+        <Grid x:Name="LoadingOverlay" BackgroundColor="#66000000" IsVisible="False" HorizontalOptions="Fill" VerticalOptions="Fill">
+            <Border BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center" Padding="30,25" WidthRequest="280">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" />
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="Black" Opacity="0.2" Radius="20" Offset="0,5" />
+                </Border.Shadow>
+                <VerticalStackLayout Spacing="15" HorizontalOptions="Center">
+                    <ActivityIndicator IsRunning="True" Color="#C4962B" WidthRequest="40" HeightRequest="40" HorizontalOptions="Center" />
+                    <Label Text="Giriş yapılıyor, lütfen bekleyin..." TextColor="#2C3E50" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Border>
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="LowmiaApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:LowmiaApp"
+    xmlns:conv="clr-namespace:LowmiaApp.Converters"
+    Shell.FlyoutBehavior="Flyout"
+    BackgroundColor="#FCF5E3"
+    TitleColor="#2C3E50"
+    ForegroundColor="#2C3E50"
+    Title="Lowmia">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <conv:IconPartConverter x:Key="IconPartConverter" />
+            <conv:TextPartConverter x:Key="TextPartConverter" />
+
+            <!-- İkon büyük + sola yakın, yazı normal boyutta -->
+            <DataTemplate x:Key="FlyoutItemTemplate">
+                <Grid Padding="14,12,20,12" ColumnDefinitions="30,*" ColumnSpacing="10">
+                    <Label Grid.Column="0"
+                           Text="{Binding Title, Converter={StaticResource IconPartConverter}}"
+                           FontSize="17"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Start" />
+                    <Label Grid.Column="1"
+                           Text="{Binding Title, Converter={StaticResource TextPartConverter}}"
+                           FontSize="16"
+                           TextColor="#2C3E50"
+                           VerticalOptions="Center" />
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <Shell.ItemTemplate>
+        <StaticResource Key="FlyoutItemTemplate" />
+    </Shell.ItemTemplate>
+    <Shell.MenuItemTemplate>
+        <StaticResource Key="FlyoutItemTemplate" />
+    </Shell.MenuItemTemplate>
+
+    <!-- SOL MENÜNÜN TEPESİNDEKİ HESAP BİLGİSİ -->
+    <Shell.FlyoutHeader>
+        <VerticalStackLayout BackgroundColor="#FCF8F5" Padding="25,45,25,25" Spacing="6">
+            <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                <Label Text="✨" FontSize="24" VerticalOptions="Center" />
+                <Label Text="LOWMİA" FontSize="22" FontAttributes="Bold" TextColor="#C4962B" CharacterSpacing="1.5" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <Label x:Name="FlyoutUserNameLabel" Text="Kullanıcı" FontSize="18" FontAttributes="Bold" TextColor="#2C3E50" Margin="0,15,0,0" />
+            <Label Text="Lowmia Dermatoloji Asistanı" FontSize="12" TextColor="#7D7D7D" />
+        </VerticalStackLayout>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Title="📷 Yeni Analiz">
+            <ShellContent Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
+        </Tab>
+        <Tab Title="🕓 Geçmiş Analizler">
+            <ShellContent Route="HistoryPage" ContentTemplate="{DataTemplate local:HistoryPage}" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="👤 Hesap Bilgileri">
+        <ShellContent Route="ProfilePage" ContentTemplate="{DataTemplate local:ProfilePage}" />
+    </FlyoutItem>
+
+    <MenuItem Text="🚪 Çıkış Yap" Clicked="OnLogoutClicked" />
+
+</Shell>

@@ -1,0 +1,13 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="512" height="512">
+    <!-- Dış Altın/Krem Rengi İnce Halka -->
+    <circle cx="128" cy="128" r="68" fill="none" stroke="#FCE8C7" stroke-width="4" />
+    
+    <!-- İç Pembe/Mor Daire -->
+    <circle cx="128" cy="128" r="54" fill="#F9EFF4" />
+    
+    <!-- L Harfi (Altın Rengi) -->
+    <path d="M 104 105 L 104 151 L 122 151" fill="none" stroke="#C4962B" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- M Harfi (Altın Rengi) -->
+    <path d="M 128 151 L 128 105 L 141 128 L 154 105 L 154 151" fill="none" stroke="#C4962B" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LowmiaApp.OnboardingPage"
+             Shell.NavBarIsVisible="False">
+
+    <!-- CSS'teki o özel Base64 SVG arka planının pastel MAUI karşılığı -->
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#F7F5F0" Offset="0.0" />
+            <GradientStop Color="#FEF9ED" Offset="0.5" />
+            <GradientStop Color="#F8F3FA" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <!-- Dış Grid: overlay'in tüm sayfayı kaplayabilmesi için eklendi -->
+    <Grid>
+
+        <ScrollView>
+            <VerticalStackLayout Padding="20,40,20,30" Spacing="15">
+
+                <!-- Başlık Alanı -->
+                <Label Text="✨" FontSize="36" HorizontalOptions="Center" TextColor="#D4AF37" />
+                <Label Text="LOWMİA'YA HOŞ GELDİNİZ" FontSize="22" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#A97C11" CharacterSpacing="1" />
+                <Label Text="Yapay zekanın cildinize en uygun analizi yapabilmesi için lütfen aşağıdaki bilgileri doldurun." 
+                       FontSize="13" 
+                       HorizontalTextAlignment="Center" 
+                       HorizontalOptions="Center" 
+                       TextColor="#6C757D" 
+                       Margin="0,0,0,10" />
+
+                <!-- Anket Formu Kartı -->
+                <Border BackgroundColor="White" Stroke="#00000000" StrokeThickness="0" Padding="25" Margin="0,10,0,0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="#1F2937" Opacity="0.08" Radius="30" Offset="0,8"/>
+                    </Border.Shadow>
+
+                    <VerticalStackLayout Spacing="20">
+
+                        <!-- Soru 1: Yaş Aralığı -->
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="👤 Yaş Aralığınız Nedir?" FontAttributes="Bold" TextColor="#1F2937" FontSize="14"/>
+                            <Border Stroke="#E5E2DA" BackgroundColor="#F9F8F5" StrokeThickness="1.5" HeightRequest="55" Padding="15,0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Picker x:Name="AgePicker" Title="Lütfen seçiniz..." TextColor="#1F2937" TitleColor="#9CA3AF" VerticalOptions="Center">
+                                    <Picker.Items>
+                                        <x:String>18 Yaş Altı</x:String>
+                                        <x:String>18 - 24</x:String>
+                                        <x:String>25 - 34</x:String>
+                                        <x:String>35 - 44</x:String>
+                                        <x:String>45 - 54</x:String>
+                                        <x:String>55 ve Üzeri</x:String>
+                                    </Picker.Items>
+                                </Picker>
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <!-- Soru 2: Cilt Tipi -->
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="💧 Cilt Tipiniz Hangisi?" FontAttributes="Bold" TextColor="#1F2937" FontSize="14"/>
+                            <Border Stroke="#E5E2DA" BackgroundColor="#F9F8F5" StrokeThickness="1.5" HeightRequest="55" Padding="15,0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Picker x:Name="SkinTypePicker" Title="Lütfen seçiniz..." TextColor="#1F2937" TitleColor="#9CA3AF" VerticalOptions="Center">
+                                    <Picker.Items>
+                                        <x:String>Bilmiyorum</x:String>
+                                        <x:String>Kuru Cilt (Gergin ve nemsiz)</x:String>
+                                        <x:String>Normal Cilt (Dengeli)</x:String>
+                                        <x:String>Karma Cilt (T bölgesi yağlı)</x:String>
+                                        <x:String>Yağlı Cilt (Parlama yapar)</x:String>
+                                        <x:String>Hassas Cilt (Çabuk kızarır)</x:String>
+                                    </Picker.Items>
+                                </Picker>
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <!-- Soru 3: Cilt Endişesi -->
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="🎯 En Büyük Cilt Endişeniz Nedir?" FontAttributes="Bold" TextColor="#1F2937" FontSize="14"/>
+                            <Border Stroke="#E5E2DA" BackgroundColor="#F9F8F5" StrokeThickness="1.5" HeightRequest="55" Padding="15,0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Picker x:Name="SkinConcernPicker" Title="Lütfen seçiniz..." TextColor="#1F2937" TitleColor="#9CA3AF" VerticalOptions="Center">
+                                    <Picker.Items>
+                                        <x:String>Bilmiyorum</x:String>
+                                        <x:String>Akne ve Sivilce</x:String>
+                                        <x:String>Güneş Lekeleri ve Ton Eşitsizliği</x:String>
+                                        <x:String>İnce Çizgiler ve Kırışıklıklar</x:String>
+                                        <x:String>Aşırı Kuruluk ve Pullanma</x:String>
+                                        <x:String>Kızarıklık ve Hassasiyet</x:String>
+                                    </Picker.Items>
+                                </Picker>
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <!-- Soru 4: Bakım Rutini -->
+                        <VerticalStackLayout Spacing="8" Margin="0,0,0,10">
+                            <Label Text="✨ Cilt Bakım Rutininiz Var Mı?" FontAttributes="Bold" TextColor="#1F2937" FontSize="14"/>
+                            <Border Stroke="#E5E2DA" BackgroundColor="#F9F8F5" StrokeThickness="1.5" HeightRequest="55" Padding="15,0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Picker x:Name="RoutinePicker" Title="Lütfen seçiniz..." TextColor="#1F2937" TitleColor="#9CA3AF" VerticalOptions="Center">
+                                    <Picker.Items>
+                                        <x:String>Bilmiyorum</x:String>
+                                        <x:String>Sadece su veya sabun kullanıyorum</x:String>
+                                        <x:String>Temel (Sadece temizleyici ve nemlendirici)</x:String>
+                                        <x:String>Kapsamlı (Serum, tonik, güneş kremi)</x:String>
+                                    </Picker.Items>
+                                </Picker>
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <!-- Gönder Butonu -->
+                        <Button Text="PROFİLİMİ KAYDET VE ANALİZE BAŞLA ➔" 
+                                BackgroundColor="#D4AF37" 
+                                TextColor="#1F2937" 
+                                FontAttributes="Bold" 
+                                CornerRadius="12" 
+                                HeightRequest="55" 
+                                Clicked="OnSaveProfileClicked" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Atla Butonu -->
+                <Label Text="Şimdilik atla, direkt analiz paneline git" 
+       TextColor="#6C757D" 
+       FontSize="13" 
+       FontAttributes="Bold"
+       HorizontalOptions="Center" 
+       Margin="0,15,0,0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSkipTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- YENİ: Profil kaydedilirken gösterilen yükleme ekranı -->
+        <Grid x:Name="LoadingOverlay" BackgroundColor="#66000000" IsVisible="False">
+            <Border BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center" Padding="30,25" WidthRequest="280">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" />
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="Black" Opacity="0.2" Radius="20" Offset="0,5" />
+                </Border.Shadow>
+                <VerticalStackLayout Spacing="15" HorizontalOptions="Center">
+                    <ActivityIndicator IsRunning="True" Color="#C4962B" WidthRequest="40" HeightRequest="40" HorizontalOptions="Center" />
+                    <Label Text="Profiliniz kaydediliyor, lütfen bekleyin..." TextColor="#2C3E50" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Border>
+        </Grid>
+
+    </Grid>
+</ContentPage>
