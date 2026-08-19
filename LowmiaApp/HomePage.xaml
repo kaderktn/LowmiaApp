@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LowmiaApp.HomePage"
-             Shell.NavBarIsVisible="True">
+             Shell.NavBarIsVisible="True"
+             Shell.BackgroundColor="#FDF0F3"
+             Shell.TitleColor="#2C3E50">
 
     <Shell.TitleView>
         <Label Text="Menü" 
@@ -22,8 +24,9 @@
     </ContentPage.Background>
 
     <Grid>
+        <!-- Ana İçerik ScrollView -->
         <ScrollView>
-            <VerticalStackLayout Padding="20" Spacing="20">
+            <VerticalStackLayout Padding="20" Spacing="20" Margin="0,0,0,20">
 
                 <!-- Üst Kısım: Tarih, Karşılama ve Profil -->
                 <Grid ColumnDefinitions="*, Auto" Margin="0,20,0,0">
@@ -33,7 +36,7 @@
                         <Label x:Name="UserNameLabel" Text="Kullanıcı" FontSize="22" FontAttributes="Bold" TextColor="#C4962B" />
                     </VerticalStackLayout>
 
-                    <!-- PROFİL FOTOĞRAFI: dokununca kamera/galeri seçimi çıkar -->
+                    <!-- PROFİL FOTOĞRAFI -->
                     <Border Grid.Column="1" WidthRequest="50" HeightRequest="50" BackgroundColor="White" Stroke="#FCE8C7" StrokeThickness="2" VerticalOptions="Center">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="25" />
@@ -110,47 +113,44 @@
                             <Label Text="Günün Cilt Testi (Doğru / Yanlış)" FontAttributes="Bold" TextColor="#A97C11" FontSize="14" VerticalOptions="Center"/>
                         </HorizontalStackLayout>
 
-                        <!-- BURAYA x:Name="TipLabel" EKLİYORUZ -->
                         <Label x:Name="TipLabel" 
-                                   Text="Güneş kremini sadece yazın, bulutlu ve kapalı havalarda sürmesek de olur." 
-                                   TextColor="#374151" 
-                                   FontSize="13"
-                                   LineBreakMode="WordWrap"/>
+                               Text="Güneş kremini sadece yazın, bulutlu ve kapalı havalarda sürmesek de olur." 
+                               TextColor="#374151" 
+                               FontSize="13"
+                               LineBreakMode="WordWrap"/>
 
-                        <!-- Doğru / Yanlış Seçim Butonları -->
                         <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,5,0,0">
                             <Button Grid.Column="0" 
-                                        Text="DOĞRU" 
-                                        BackgroundColor="#16A34A" 
-                                        TextColor="#FDF0F3" 
-                                        FontAttributes="Bold" 
-                                        CornerRadius="10" 
-                                        HeightRequest="40"
-                                        Clicked="OnTrueAnswerClicked"/>
+                                    Text="DOĞRU" 
+                                    BackgroundColor="#16A34A" 
+                                    TextColor="#FDF0F3" 
+                                    FontAttributes="Bold" 
+                                    CornerRadius="10" 
+                                    HeightRequest="40"
+                                    Clicked="OnTrueAnswerClicked"/>
 
                             <Button Grid.Column="1" 
-                                        Text="YANLIŞ" 
-                                        BackgroundColor="#DC2626" 
-                                        TextColor="#FDF3E8" 
-                                        FontAttributes="Bold" 
-                                        CornerRadius="10" 
-                                        HeightRequest="40"
-                                        Clicked="OnFalseAnswerClicked"/>
+                                    Text="YANLIŞ" 
+                                    BackgroundColor="#DC2626" 
+                                    TextColor="#FDF3E8" 
+                                    FontAttributes="Bold" 
+                                    CornerRadius="10" 
+                                    HeightRequest="40"
+                                    Clicked="OnFalseAnswerClicked"/>
                         </Grid>
                     </VerticalStackLayout>
                 </Border>
             </VerticalStackLayout>
         </ScrollView>
 
-        <!-- YENİ: Analiz sırasında gösterilen yükleme ekranı -->
-        <!-- YENİ: Analiz sırasında gösterilen yükleme ekranı (kart tasarımı) -->
+        <!-- Yükleme Ekranı Overlay -->
         <Grid x:Name="LoadingOverlay" BackgroundColor="#33000000" IsVisible="False">
             <Border BackgroundColor="White"
-            StrokeThickness="0"
-            Padding="30,25"
-            HorizontalOptions="Center"
-            VerticalOptions="Center"
-            WidthRequest="220">
+                    StrokeThickness="0"
+                    Padding="30,25"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="220">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="20" />
                 </Border.StrokeShape>
@@ -161,14 +161,14 @@
                 <VerticalStackLayout HorizontalOptions="Center" Spacing="14">
                     <ActivityIndicator IsRunning="True" Color="#D4AF37" WidthRequest="40" HeightRequest="40" />
                     <Label Text="Lütfen bekleyiniz"
-                   TextColor="#2C3E50"
-                   FontAttributes="Bold"
-                   FontSize="15"
-                   HorizontalOptions="Center" />
+                           TextColor="#2C3E50"
+                           FontAttributes="Bold"
+                           FontSize="15"
+                           HorizontalOptions="Center" />
                     <Label Text="Analiz ediliyor..."
-                   TextColor="#9CA3AF"
-                   FontSize="12"
-                   HorizontalOptions="Center" />
+                           TextColor="#9CA3AF"
+                           FontSize="12"
+                           HorizontalOptions="Center" />
                 </VerticalStackLayout>
             </Border>
         </Grid>
